@@ -1,0 +1,14 @@
+<div class="container">
+    <section class="row my-5">
+        <mat-progress-bar *ngIf="showLoader" class="col-10 mx-auto d-block mb-5" mode="indeterminate">
+        </mat-progress-bar>
+        <div class="clearfix"></div>
+        <app-header class="col-12 mb-5"></app-header>
+        <div class="clearfix"></div>
+        <app-side-filter class="col-12 col-md-4 col-lg-3 col-xl-3" (sendParam)="getPayload($event)"></app-side-filter>
+        <div class="clearfix"></div>
+        <app-launch-comp class="col-12 col-md-8 col-lg-9 col-xl-9" [details]="lauchDetails"></app-launch-comp>
+        <div class="clearfix"></div>
+        <app-footer class="col-12 mt-5"></app-footer>
+    </section>
+</div>

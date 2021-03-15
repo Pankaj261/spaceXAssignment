@@ -1,0 +1,11 @@
+body {
+    background-color: #e8e8e8; 
+}
+
+.card-body {
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}

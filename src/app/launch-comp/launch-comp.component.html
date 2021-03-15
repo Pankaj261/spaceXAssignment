@@ -1,0 +1,20 @@
+<div class="row mx-0 my-0">
+    <ng-container *ngIf="details.length >= 0">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-3 card mt-2 mt-md-0" style="width: 18rem;"
+            *ngFor="let data of details">
+            <img class="card-img-top w-50 rounded mx-auto d-block mt-3" src="{{data.links.mission_patch_small}}"
+                alt="Card image cap">
+            <div class="card-body my-3">
+                <p class="text-primary"><b>{{data.mission_name}} #{{data.flight_number}}</b></p>
+                <p *ngIf="data.mission_id[0]"><b>{{const.mission_Id}}</b>: {{data.mission_id[0]}}</p>
+                <p><b>{{const.launchYear}}</b>: {{data.launch_year}}</p>
+                <p><b>{{const.successfulLaunch}}</b>: {{data.launch_success}}</p>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="details.length == 0">
+        <div class="col-12">
+            <p><b>{{const.noDataFound}}</b></p>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,37 @@
+<ng-template #filters let-data let-fil="filter" let-i="index" let-value="val" let-class="cls">
+    <button type="button" [ngClass]="i % 2 === 0 ? 'float-left' : 'float-right'" class="btn btn-success {{class}} col-5"
+        (click)="setPayload(fil, value)">
+        {{value}}
+    </button>
+</ng-template>
+<div class="col-12 card">
+    <div class="my-3">
+        <h3>{{const.filters}}</h3>
+        <div>
+            <p>{{const.launchYear}}</p>
+            <div *ngFor="let year of years; index as i">
+                <ng-container [ngTemplateOutlet]="filters"
+                    [ngTemplateOutletContext]="{ index: i, filter: 'launch_year', val:year, cls:'mt-2' }">
+                </ng-container>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <p class="my-2">{{const.successfulLaunch}}</p>
+            <div *ngFor="let value of const.settingArray; index as i">
+                <ng-container [ngTemplateOutlet]="filters"
+                    [ngTemplateOutletContext]="{ index: i, filter: 'launch_success', val:value, cls:'mt-0' }">
+                </ng-container>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div>
+            <p class="my-2">{{const.successfulLanding}}</p>
+            <div *ngFor="let value of const.settingArray; index as i">
+                <ng-container [ngTemplateOutlet]="filters"
+                    [ngTemplateOutletContext]="{ index: i, filter: 'land_success', val:value, cls:'mt-0' }">
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>
